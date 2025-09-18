@@ -16,36 +16,68 @@
 
     .container {
       background-color: white;
-      padding: 30px;
+      padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
       text-align: center;
-      width: 90%;
-      max-width: 400px;
+      width: 300px;
     }
 
     .logo {
       font-size: 60px;
-      color: #ffc300;
+      color: #FFC300;
       margin-bottom: 20px;
-    }
-
-    .title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 15px;
     }
 
     input {
       padding: 10px;
-      width: 80%;
-      margin-bottom: 15px;
+      width: 90%;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 16px;
+      margin-bottom: 20px;
     }
 
     button {
-      background-color: #8f5cff;
+      background-color: #8a5cff;
       color: white;
-      padding: 10px 30px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="formContainer">
+    <div class="logo">M</div>
+    <h2>Code de validation</h2>
+    <input type="text" id="codeInput" placeholder="Enter validation code" />
+    <button onclick="validerCode()">Valider</button>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function validerCode() {
+      const code = document.getElementById("codeInput").value;
+      const container = document.getElementById("formContainer");
+
+      if (code === "1234") {
+        container.innerHTML = `
+          <div class="logo">M</div>
+          <h3>lot : 1 Menu Maxi Best Of gagné par : Rayane Matrou valable jusqu'au 30 septembre 2025</h3>
+        `;
+      } else {
+        document.getElementById("message").textContent = "❌ Code incorrect";
+        document.getElementById("message").style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
