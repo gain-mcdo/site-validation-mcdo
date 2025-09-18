@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Code de validation</title>
+  <meta charset="UTF-8" />
+  <title>Gain McDo</title>
   <style>
     body {
-      background-color: #d0ffd0;
+      background-color: #b6e7b2;
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
@@ -13,71 +13,49 @@
       height: 100vh;
       margin: 0;
     }
-
     .container {
       background-color: white;
-      padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      width: 300px;
-    }
-
-    .logo {
-      font-size: 60px;
-      color: #FFC300;
-      margin-bottom: 20px;
-    }
-
-    input {
-      padding: 10px;
+      padding: 30px 20px;
       width: 90%;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .logo {
+      width: 60px;
       margin-bottom: 20px;
     }
-
-    button {
-      background-color: #8a5cff;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
+    .gain {
+      font-size: 18px;
+      margin-bottom: 10px;
     }
-
-    #message {
-      margin-top: 20px;
+    .lot {
+      font-size: 20px;
+      color: red;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .info {
+      color: #555;
+      margin: 4px 0;
+    }
+    .valide {
+      margin-top: 15px;
       font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="container" id="formContainer">
-    <div class="logo">M</div>
-    <h2>Code de validation</h2>
-    <input type="text" id="codeInput" placeholder="Enter validation code" />
-    <button onclick="validerCode()">Valider</button>
-    <div id="message"></div>
+  <div class="container">
+    <img src="mcdo.png" alt="Logo McDo" class="logo" />
+    <div class="gain">Lot gagné :</div>
+    <div class="lot">1 Menu Maxi Best Of</div>
+    <div class="info">Email : matrourayane@gmail.com</div>
+    <div class="info">Date de naissance : 23-05-2007</div>
+    <div class="info">Prénom : Rayane</div>
+    <div class="info">Nom : Matrou</div>
+    <div class="info valide">Valable jusqu'au : 30-09-2025</div>
   </div>
-
-  <script>
-    function validerCode() {
-      const code = document.getElementById("codeInput").value;
-      const container = document.getElementById("formContainer");
-
-      if (code === "1234") {
-        container.innerHTML = `
-          <div class="logo">M</div>
-          <h3>lot : 1 Menu Maxi Best Of gagné par : Rayane Matrou valable jusqu'au 30 septembre 2025</h3>
-        `;
-      } else {
-        document.getElementById("message").textContent = "❌ Code incorrect";
-        document.getElementById("message").style.color = "red";
-      }
-    }
-  </script>
 </body>
 </html>
