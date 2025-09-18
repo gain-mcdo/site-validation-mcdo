@@ -1,61 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Gain McDo</title>
-  <style>
-    body {
-      background-color: #b6e7b2;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .container {
-      background-color: white;
-      border-radius: 20px;
-      padding: 30px 20px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .logo {
-      width: 60px;
-      margin-bottom: 20px;
-    }
-    .gain {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    .lot {
-      font-size: 20px;
-      color: red;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-    .info {
-      color: #555;
-      margin: 4px 0;
-    }
-    .valide {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>Validation Code McDo</title>
+<style>
+  body {
+    background-color: #b6e7b2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .logo {
+    width: 60px;
+    margin-bottom: 20px;
+  }
+  .lot {
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .info {
+    color: #555;
+    margin: 4px 0;
+  }
+  .valide {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: #e60000;
+    color: white;
+    cursor: pointer;
+    .error {
+    color: #e60000;
+    margin-top: 10px;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="container">
     <img src="mcdo.png" alt="Logo McDo" class="logo" />
-    <div class="gain">Lot gagné :</div>
-    <div class="lot">1 Menu Maxi Best Of</div>
-    <div class="info">Email : matrourayane@gmail.com</div>
-    <div class="info">Date de naissance : 23-05-2007</div>
-    <div class="info">Prénom : Rayane</div>
-    <div class="info">Nom : Matrou</div>
-    <div class="info valide">Valable jusqu'au : 30-09-2025</div>
+    <input type="text" id="codeInput" placeholder="Entrez le code" />
+    <br />
+    <button onclick="verifierCode()">Valider</button>
+    <div id="error" class="error"></div>
   </div>
+
+<script>
+  function verifierCode() {
+    const code = document.getElementById('codeInput').value.trim();
+    const container = document.getElementById('container');
+    const errorDiv = document.getElementById('error');
+
+    if(code === '1234') {
+      container.innerHTML = `
+        <img src="mcdo.png" alt="Logo McDo" class="logo" />
+        <div class="lot">Lot gagné :</div>
+        <div class="lot" style="color:red;">1 Menu Maxi Best Of</div>
+        <div class="info">Email : matrourayane@gmail.com</div>
+        <div class="info">Date de naissance : 23-05-2007</div>
+        <div class="info">Prénom : Rayane</div>
+        <div class="info">Nom : Matrou</div>
+        <div class="info valide">Valable jusqu'au : 30-09-2025</div>
+      `;
+    } else {
+      errorDiv.textContent = "Code invalide, réessaye !";
+    }
+  }
+</script>
 </body>
 </html>
